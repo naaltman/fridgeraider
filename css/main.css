@@ -1,5 +1,5 @@
 body, html{
-  width:100vh;
+  width:100%;
   text-align: center;
   background-image: url("../img/header-bg.jpeg");
   background-repeat: no-repeat;
@@ -7,15 +7,32 @@ body, html{
   background-size: cover;
 }
 
+.font-playfair{
+  font-family: 'Playfair Display', serif;
+
+}
+
+.header-text {
+  font-family: 'Playfair Display', serif;
+  font-style: oblique;
+  font-size: 80px;
+}
+
 .text-format{
   color: white;
   text-align: center;
 }
-/* header.masthead {
+
+.button-style{
+  background-color: #585858;
+  color: white;
+  text-decoration-color: white;
+}
+
+
+header.masthead {
   text-align: center;
-  background-image: url("../img/header-bg.jpeg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  -webkit-background-size: cover;
-} */
+  padding-top: 100px;
+  padding-bottom: 100px;
+/*  padding-left: 50%; */
+}
