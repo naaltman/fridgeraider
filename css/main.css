@@ -1,10 +1,30 @@
-body, html{
+.landing-page{
+    width:100%;
+    text-align: center;
+    background-image: url("../img/header-bg.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+
+.header:hover{
+  color: white;
+}
+
+.about-page{
   width:100%;
   text-align: center;
-  background-image: url("../img/header-bg.jpeg");
+  background-image: url("../img/appleOrchard.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.nav-class{
+  background-color: #383838;
+  color: #DCDCDC;
+  height: 50px;
 }
 
 .font-playfair{
@@ -29,6 +49,14 @@ body, html{
   text-decoration-color: white;
 }
 
+.btn {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.btn:hover{
+  color: #C0C0C0;
+}
 
 header.masthead {
   text-align: center;

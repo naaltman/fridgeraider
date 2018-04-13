@@ -1,0 +1,36 @@
+body, html{
+  width:100%;
+  text-align: center;
+  background-image: url("../img/appleOrchard.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.about-info-header{
+  clear:both;
+}
+
+.about-header-text{
+  text-align: center;
+}
+
+.about-info{
+  padding: 40px;
+  float: right;
+  background-color: #383838;
+  opacity: 90%;
+  height: auto;
+  width: 40%;
+  color: white;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 1px;
+}
+
+.about-info:hover{
+  opacity: 20%;
+}
