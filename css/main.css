@@ -16,7 +16,7 @@
   width:100%;
   text-align: center;
   background-image: url("../img/appleOrchard.jpg");
-  background-repeat: no-repeat;
+  background-repeat: no-repe3at;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -25,7 +25,9 @@
   background-color: #383838;
   color: #DCDCDC;
   height: 50px;
+  opacity: .8;
 }
+
 
 .font-playfair{
   font-family: 'Playfair Display', serif;
@@ -51,7 +53,7 @@
 
 .btn {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  /* font-weight: 300; */
 }
 
 .btn:hover{

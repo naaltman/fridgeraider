@@ -7,30 +7,29 @@ body, html{
   background-size: cover;
 }
 
-.about-info-header{
-  clear:both;
+.justify{
+  text-align: justify;
 }
 
-.about-header-text{
+.center{
+  /* margin-left: 50% */
   text-align: center;
 }
 
 .about-info{
   padding: 40px;
-  float: right;
   background-color: #383838;
-  opacity: 90%;
+  opacity: .8;
   height: auto;
-  width: 40%;
+  width: 90%;
   color: white;
-  margin-right: 20px;
+  /* margin-right: 50%; */
+  /* margin-left: 50%; */
+  margin: 5%;
   margin-bottom: 20px;
   margin-top: 20px;
-  border-style: solid;
-  border-color: black;
-  border-radius: 1px;
 }
 
 .about-info:hover{
-  opacity: 20%;
+  opacity: .95;
 }
