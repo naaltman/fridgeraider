@@ -10,7 +10,7 @@ function loadAjax(){
 
   // These code snippets use an open-source library. http://unirest.io/nodejs
 fetch(textURL, {
-  .header("X-Mashape-Key", "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1")
+  .header("X-Mashape-Key", APIKEY)
   .header("Accept", "application/json")
 })
   console.log(result.status, result.headers, result.body);
