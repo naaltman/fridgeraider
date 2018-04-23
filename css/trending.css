@@ -8,8 +8,9 @@ body, html{
   background-attachment: fixed;
   background-size: cover; */
 }
-body {
-  font-family: 'Source Sans Pro';
+
+.body{
+  font-family: 'Playfair Display', serif;
 }
 
 .sub-heading{
