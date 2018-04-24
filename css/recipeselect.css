@@ -1,13 +1,22 @@
 body, html{
   width:100%;
   text-align: center;
-  /* background-image: url("../img/appleOrchard.jpg"); */
-  background-color: #282828;
-  /* background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; */
+  background-color: #fff;
 }
 
 .enterinfo{
   text-align: center;
+}
+
+.del-btn{
+  color: #ff8080;
+  margin-left: 5px;
+}
+
+h3{
+  font-family: 'Raleway', sans-serif;
+}
+
+.drpdwn{
+  font-family: 'Raleway', sans-serif;
 }

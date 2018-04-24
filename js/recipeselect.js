@@ -1,46 +1,87 @@
+const APIKEY = "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1"
+const PROJECTNAME = "FridgeRaider"
+var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true"
+var ingredients = [];
+var allergies;
+var restrict;
+var cuisine;
+var mealType;
+var hasAllergies = true;
+var onDiet = true;
+var negate = ['none', 'no', 'not', 'no allergies', 'no diet'];
 function loadAjax(){
-  var textURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze";
-  var myIngredient = document.getElementById("ingredient").value;
+  getCuisine()
+  getAllergies()
+  getDiet()
+  getMealType()
 
-  const APIKEY = "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1"
-  const PROJECTNAME = "FridgeRaider"
-  const RapidAPI = new require('rapidapi-connect');
-  const rapid = new RapidAPI(PROJECTNAME, APIKEY);
+  url += "&cuisine=" + cuisine
+  if(onDiet){
+    url += "&diet=" + restrict
+  }
 
+  // create url formatting with ingredients
+  url += "&fillIngredients=false&includeIngredients="
+  var i;
+  url += ingredients[0]
+  for(i =1; i< ingredients.length; i++){
+    url += "%2C+" + ingredients[i]
+  }
 
-  // These code snippets use an open-source library. http://unirest.io/nodejs
-fetch(textURL, {
-  .header("X-Mashape-Key", "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1")
-  .header("Accept", "application/json")
-})
-  console.log(result.status, result.headers, result.body);
-});
+  if(hasAllergies){
+    url += "&intolerances=" + allergies
+  }
+  url += "&limitLicense=false&number=5&offset=500&type=" + mealType
 
+  console.log("url " + url)
+  fetch(url,
+    {headers:
+      {"X-Mashape-Key": APIKEY,
+      "Accept": "application/json"}}
+    )
+    .then(rsp => rsp.json())
+    .then(rsp => console.log(rsp))
+}
 
+function saveItems(){
+  var i;
+  var input = document.getElementById("itemList").value.split(", ")
+  for(i = 0; i < input.length; i++){
+    ingredients.push(input[i])
+  }
+  console.log("ingredients: "+ ingredients)
+}
 
+function getCuisine(){
+  cuisine = document.getElementById("cuisine").value
+  console.log("cuisine " + cuisine)
 
-//
-//   console.log("making fetch to", autoCompTextURL)
-//   console.log("Got incredient as", myIngredient)
-//   fetch(autoCompTextURL, {
-//     body: "ingredientList="+myIngredient+"&servings=2",
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/x-www-form-urlencoded",
-//       "X-Mashape-Key": "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1"
-//     },
-//     method: "POST"
-//   })
-//   .then(resp=>{
-//   resp.json()
-//     .then(json => {
-//       console.log(json)
-//       document.getElementByID('new_ingredient')
-//         .src=json.message
-//         console.log(document.getElementById('new_ingredient'))
-//     })
-//     .catch()
-//   })
-// .catch(error => console.log("ERROR" + error))
-// }
-// document.addEventListener("DOMContentLoaded", loadAjax)
+}
+
+function getDiet(){
+  restrict = document.getElementById("diet").value
+  if(negate.includes(restrict)){
+    onDiet = false
+  }
+  console.log("diet " + restrict)
+}
+
+function getAllergies(){
+  allergies = document.getElementById("allergies").value
+  if(negate.includes(allergies)){
+    hasAllergies = false
+  }
+  console.log("allergies " + allergies)
+}
+
+function getMealType(){
+  type = document.getElementById("meal_type").value
+  if(type == "brek"){
+    mealType = "breakfast"
+  } else if(type == "main"){
+    mealType = "main+course"
+  } else if(type == "dessert"){
+    mealType = "dessert"
+  }
+  console.log("meal type " + mealType)
+}

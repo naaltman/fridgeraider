@@ -5,29 +5,34 @@
   <link href="../css/main.css" rel="stylesheet">
   <link href="../css/recipeselect.css" rel="stylesheet">
   <link rel="shortcut icon" href="../img/refrigerator.png"/>
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900|Raleway:300,400" rel="stylesheet">
+
   <title> Fridge Raider </title>
 </head>
 <body>
   <!-- Navigation -->
   <section>
-    <nav class="navbar nav-class navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav class="navbar nav-class navbar-expand-lg navbar-dark fixed-top"
+      id="mainNav">
       <div class="container">
-        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a> -->
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+          data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">Menu<i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="../index.html">Home</a>
+              <a class="nav-link js-scroll-trigger"
+              href="../index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="about.html">About</a>
+              <a class="nav-link js-scroll-trigger"
+              href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="trending.html">Trending</a>
+              <a class="nav-link js-scroll-trigger"
+              href="trending.html">Trending</a>
             </li>
           </ul>
         </div>
@@ -38,18 +43,94 @@
   <div>
     <br></br>
   </div>
-
+  <br> <br>
   <section class="enterinfo row">
-    <form action="../js/recipeselect.js/loadAjax()" autocomplete="on">
-      Ingredient:<input type="text" class="ingredient"><br>
-      <input type="submit">
-    </form>
+    <div class="mx-auto col-6">
+
+    <!-- options include:
+     main course, side dish, dessert, appetizer, salad,
+     bread, breakfast, soup, beverage, sauce, or drink. -->
+    <h3> What Meal Do You Want To Make? </h3>
+    <div class="dropdown">
+    <select class="btn btn-light dropdown-toggle drpdwn" id="meal_type">
+      Select Meal Type
+      <option value="brek">Breakfast</option>
+      <option value="main">Lunch</option>
+      <option value="main">Dinner</option>
+      <option value="dessert">Dessert</option>
+    </select>
+    </div>
+
+    <h3>What Type of Cuisine?</h3>
+    <div class="dropdown">
+    <select class="btn btn-light dropdown-toggle drpdwn"
+    id="cuisine">Select Cuisine
+      <option>African</option>
+      <option>American</option>
+      <option>British</option>
+      <option>Cajun</option>
+      <option>Caribbean</option>
+      <option>Chinese</option>
+      <option>Eastern European</option>
+      <option>French</option>
+      <option>German</option>
+      <option>Greek</option>
+      <option>Indian</option>
+      <option>Irish</option>
+      <option>Italian</option>
+      <option>Japanese</option>
+      <option>Jewish</option>
+      <option>Korean</option>
+      <option>Latin American</option>
+      <option>Mexican</option>
+      <option>Middle Eastern</option>
+      <option>Nordic</option>
+      <option>Southern</option>
+      <option>Spanish</option>
+      <option>Thai</option>
+      <option>Vietnamese</option>
+  </select>
+  </div>
+
+  <h3> Do You Have Any Allergies? </h3>
+  <div class="form-group row">
+    <div class="mx-auto">
+    <div class="col-xs-4">
+    <label for="usr"></label>
+    <input type="text" class="form-control col-xs-2" id="allergies">
+  </div> </div>
+</div>
+
+<!-- options include:
+pescetarian, lacto vegetarian, ovo vegetarian, vegan,
+paleo, primal, and vegetarian. -->
+  <h3> Any Dietary Restrictions? </h3>
+  <div class="form-group row">
+    <div class="mx-auto">
+      <div class="col-xs-4">
+    <label for="usr"></label>
+    <input type="text" class="form-control" id="diet">
+  </div></div></div>
+
+  <h3> What's In Your Fridge? </h3>
+  <div>
+    <input type="text" name="item" id="itemList">
+    <button id="addItems" type="submit" class="btn btn-light drpdwn"
+      onclick=saveItems()>
+      Add</button>
+  </div>
+  <br>
+  <button id="findRecipe" class="btn btn-light drpdwn"
+  onclick="loadAjax()">find recipes</button>
+
+  </div>
+
+
   </section>
 
-  <div>
-    <br></br>
-    <br></br>
-  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
   <script src="../js/recipeselect.js"></script>
   </body>
