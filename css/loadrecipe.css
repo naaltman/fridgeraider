@@ -1,0 +1,9 @@
+body, html{
+  width:100%;
+  text-align: center;
+  background-color: #fff;
+  font-family: 'Raleway', sans-serif;
+}
+.loadBtn{
+  font-family: 'Raleway', sans-serif;
+}

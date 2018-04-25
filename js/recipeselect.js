@@ -1,46 +1,35 @@
-const APIKEY = "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1"
-const PROJECTNAME = "FridgeRaider"
-var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true"
-var ingredients = [];
-var allergies;
-var restrict;
-var cuisine;
-var mealType;
-var hasAllergies = true;
-var onDiet = true;
-var negate = ['none', 'no', 'not', 'no allergies', 'no diet'];
-function loadAjax(){
-  getCuisine()
-  getAllergies()
-  getDiet()
-  getMealType()
+var query = '';
+var ingredients = 'apples,flour,sugar';
+var allergies = '';
+var restrict = '';
+var cuisine = 'american';
+var mealType = 'main+dish';
+var hasAllergies = false;
+var onDiet = false;
+var negate = ['none', 'no', 'not', 'no allergies', 'no diet', ''];
+function loadRecipes(){
+  // getCuisine()
+  // getAllergies()
+  // getDiet()
+  // getMealType()
 
-  url += "&cuisine=" + cuisine
+  //query starts with cuisine type
+  query += "cuisine=" + cuisine
+  // diet is an optional parameter
   if(onDiet){
-    url += "&diet=" + restrict
+    query += "&diet=" + restrict
   }
-
   // create url formatting with ingredients
-  url += "&fillIngredients=false&includeIngredients="
-  var i;
-  url += ingredients[0]
-  for(i =1; i< ingredients.length; i++){
-    url += "%2C+" + ingredients[i]
-  }
-
+  query += "&fillIngredients=false&includeIngredients=" +
+    encodeURIComponent(ingredients)
+  //allergies as optional parameter
   if(hasAllergies){
-    url += "&intolerances=" + allergies
+    query += "&instructionsRequired=true&intolerances=" + allergies
   }
-  url += "&limitLicense=false&number=5&offset=500&type=" + mealType
+  //parameters that'll stay constant (offset and number of recipes returned)
+  query += "&limitLicense=false&number=5&offset=5&type=" + mealType
+  window.location.href = "loadrecipe.html?" + query
 
-  console.log("url " + url)
-  fetch(url,
-    {headers:
-      {"X-Mashape-Key": APIKEY,
-      "Accept": "application/json"}}
-    )
-    .then(rsp => rsp.json())
-    .then(rsp => console.log(rsp))
 }
 
 function saveItems(){
