@@ -38,11 +38,17 @@ app.use(bodyParser.json())
 
 // show all recipes
 app.get('/', (req, res) => {
-  recipeDb.find().then(recipeDb => {
-      res.json(recipeDb)
+  recipeDb.find().then(reciVar => {
+      res.json(reciVar)
     })
 })
-
+app.get('/:recipeName', (req, res) => {
+  recipeDb.find({
+    recipeName:req.params.recipeName
+  }).then(reciVar => {
+      res.json(reciVar)
+    })
+})
 //recipeName = orderName
 app.put('/:recipeName', (req, res) => {
   console.log("Create order for", req.params.recipeName)
@@ -53,7 +59,7 @@ app.put('/:recipeName', (req, res) => {
   var newRecipe = recipeDb({
       recipeName:req.params.recipeName,
       dietaryRest:req.params.dietaryRest})
-  recipeDb.save()
+  newRecipe.save()
   res.json({   // echo the order back (which now has an order number)
     result: 'success',
     newRecipe: newRecipe

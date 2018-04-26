@@ -24,6 +24,8 @@ function loadNewRecipe(){
   console.log(recipes[rand])
   document.getElementById("recipe_title").innerHTML = recipes[rand].title
   document.getElementById("recipe_picture").src = recipes[rand].image
+  //PUT A PUT REQUEST FOR NPM FETCH PUT THE RECIPE INFO ON IT
+
 }
 
 document
