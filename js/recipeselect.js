@@ -1,17 +1,17 @@
 var query = '';
-var ingredients = 'apples,flour,sugar';
+var ingredients = [];
 var allergies = '';
 var restrict = '';
-var cuisine = 'american';
-var mealType = 'main+dish';
+var cuisine = '';
+var mealType = '';
 var hasAllergies = false;
 var onDiet = false;
 var negate = ['none', 'no', 'not', 'no allergies', 'no diet', ''];
 function loadRecipes(){
   // getCuisine()
-  // getAllergies()
-  // getDiet()
-  // getMealType()
+  getAllergies()
+  getDiet()
+  getMealType()
 
   //query starts with cuisine type
   query += "cuisine=" + cuisine

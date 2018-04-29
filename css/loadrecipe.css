@@ -1,9 +1,12 @@
 body, html{
   width:100%;
-  text-align: center;
   background-color: #fff;
   font-family: 'Raleway', sans-serif;
 }
 .loadBtn{
   font-family: 'Raleway', sans-serif;
+  background-color: #D3D3D3;
+  color: #fff;
+  border: none;
+  margin: 8px;
 }

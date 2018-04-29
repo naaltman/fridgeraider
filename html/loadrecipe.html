@@ -1,21 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- link to bootstraps  -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="../css/main.css" rel="stylesheet">
-  <link href="../css/loadrecipe.css" rel="stylesheet">
+
   <link rel="shortcut icon" href="../img/refrigerator.png"/>
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900|Raleway:300,400" rel="stylesheet">
+
+  <!-- styling for this page  -->
+  <link href="../css/main.css" rel="stylesheet">
+  <link href="../css/loadrecipe.css" rel="stylesheet">
+  <link href="../css/carousel.css" rel="stylesheet">
 
   <title> Fridge Raider </title>
 </head>
 <body>
-  <h1> Here's a Recipe For You: </h1> <h1 id="recipe_title"> </h1>
-  <img id= "recipe_picture">
-  <p id= "instructions"></p>
-  <button id="new_recipe" class="btn btn-light loadBtn" onclick=loadNewRecipe()>
-    Not feelin' it? Try This Instead</button>
+  <section>
+    <nav class="navbar nav-class navbar-expand-lg navbar-dark fixed-top"
+      id="mainNav">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+          data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">Menu<i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger"
+              href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger"
+              href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger"
+              href="trending.html">Trending</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
 
+  <section id="recipe_info">
+  <div class="container">
+  <div class="row">
+  <h1 class="col-12 ml-5" id="recipe_title"> </h1>
+  <img class="col-4 mx-auto" id= "recipe_picture">
+  <ol class="col-6" id="instructions"></ol>
+  <br>
+  <button id="new_recipe" class="mx-auto btn btn-light loadBtn"
+   onclick=loadNewRecipe()> Not feelin' it? Try This Instead</button>
+
+ </div>
+</div>
+
+  </section>
+
+
+  <!-- load jquery, popper and other dependencies  -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
