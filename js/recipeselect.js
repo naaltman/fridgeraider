@@ -1,5 +1,9 @@
 var query = '';
+<<<<<<< HEAD
 var ingredients = [];
+=======
+var ingredients = ['apples,flour,sugar'];
+>>>>>>> 4c9769286baeda40f4c48cc1a8ca04107f5143e6
 var allergies = '';
 var restrict = '';
 var cuisine = '';
@@ -26,6 +30,7 @@ function loadRecipes(){
   if(hasAllergies){
     query += "&instructionsRequired=true&intolerances=" + allergies
   }
+  console.log(query)
   //parameters that'll stay constant (offset and number of recipes returned)
   query += "&limitLicense=false&number=5&offset=5&type=" + mealType
   window.location.href = "loadrecipe.html?" + query
