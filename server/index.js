@@ -8,14 +8,17 @@ const app = express()
 //Get me some mongoose!
 const mongoose = require('mongoose');
 const fs = require('fs')
+const cors = require('cors')
 const config = JSON.parse(fs.readFileSync('config.json', 'UTF-8'))
 mongoose.connect(config.dburl)
 var db = mongoose.connection
 
+app.use(cors())
+
 //Define the recipe schema
 var recipeSchema = mongoose.Schema({
-  recipeName: String,
-  dietaryRest: String
+  recipe: [String]
+  //diets: String,
 })
 
 //bind schema to mongodb collection 'recipes'
@@ -42,29 +45,77 @@ app.get('/', (req, res) => {
       res.json(reciVar)
     })
 })
-app.get('/:recipeName', (req, res) => {
+
+app.get('/:recipe', (req, res) => {
   recipeDb.find({
-    recipeName:req.params.recipeName
+    recipe:req.params.recipe
   }).then(reciVar => {
       res.json(reciVar)
     })
 })
-//recipeName = orderName
-app.put('/:recipeName', (req, res) => {
-  console.log("Create order for", req.params.recipeName)
 
+// app.get('/:recipePic', (req, res) => {
+//   recipeDb.find({
+//     recipePic:req.params.recipePic
+//   }).then(picVar => {
+//       res.json(picVar)
+//     })
+// })
+//
+// app.get('/:diets', (req, res) => {
+//   recipeDb.find({
+//     diets:req.params.diets
+//   }).then(dietVar => {
+//       res.json(dietVar)
+//     })
+// })
+
+
+app.put('/:recipe', (req, res) => {
+  console.log("Adding the Recipe of :", req.params)
 
   // insert a new recipe in the database
   // don't forget to set the default recipe, nothing: ['']
-  var newRecipe = recipeDb({
-      recipeName:req.params.recipeName,
-      dietaryRest:req.params.dietaryRest})
-  newRecipe.save()
+  var newRec = recipeDb({
+      recipe: req.params.recipe,
+      recipePic: ""})
+  newRec.save()
   res.json({   // echo the order back (which now has an order number)
     result: 'success',
-    newRecipe: newRecipe
+    newRec: newRec
   })
 })
+
+// //recipeName = orderName
+// app.put('/:recipeName', (req, res) => {
+//   console.log("Adding the recipe name of: ", req.params.recipeName)
+//
+//   // insert a new recipe in the database
+//   // don't forget to set the default recipe, nothing: ['']
+//   var newRecipe = recipeDb({
+//       recipeName:req.params.recipeName})
+//   newRecipe.save()
+//   res.json({   // echo the order back (which now has an order number)
+//     result: 'success',
+//     newRecipe: newRecipe
+//   })
+// })
+//
+//
+//
+// app.put('/:diets', (req, res) => {
+//   console.log("Create order for", req.params.diets)
+//
+//   // insert a new recipe in the database
+//   // don't forget to set the default recipe, nothing: ['']
+//   var newDiet = recipeDb({
+//       diets:req.params.diets})
+//   newDiet.save()
+//   res.json({   // echo the order back (which now has an order number)
+//     result: 'success',
+//     newDiet: newDiet
+//   })
+// })
 
 // app.delete('/:orderName', (req, res) => {
 //   console.log("Delete order for", req.pizzaOrder)

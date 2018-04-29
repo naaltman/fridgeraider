@@ -1,31 +1,71 @@
 const APIKEY = "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1"
 const PROJECTNAME = "FridgeRaider"
 var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true"
+var dburl = "http://localhost:3000"
 var recipes;
-function loadAjax(){
+
+function loadAjax() {
   queryURL = window.location.search
-  url += queryURL.substring(queryURL.indexOf("?")+1)
-  fetch(url,
-    {headers:
-      {"X-Mashape-Key": APIKEY,
-      "Accept": "application/json"}}
-    )
+  url += queryURL.substring(queryURL.indexOf("?") + 1)
+  fetch(url, {
+      headers: {
+        "X-Mashape-Key": APIKEY,
+        "Accept": "application/json"
+      }
+    })
     .then(rsp => rsp.json())
     .then(rsp => {
       recipes = rsp.results
       console.log(rsp)
       document.getElementById("recipe_title").innerHTML = recipes[0].title
       document.getElementById("recipe_picture").src = recipes[0].image
+      putInDb(0);
     })
 }
 
-function loadNewRecipe(){
+function loadNewRecipe() {
   var rand = parseInt(Math.random() * 9, 10)
   console.log(recipes[rand])
   document.getElementById("recipe_title").innerHTML = recipes[rand].title
   document.getElementById("recipe_picture").src = recipes[rand].image
   //PUT A PUT REQUEST FOR NPM FETCH PUT THE RECIPE INFO ON IT
+  putInDb(rand);
+}
 
+function putInDb(num) {
+  var recNameURL = dburl + "/" + recipes[num].title
+  var recPicURL = dburl + "/" + encodeURIComponent(recipes[num].image)
+  // var recArr = [recipes[num].title, recipes[num].image]
+  var recName = recipes[num].title
+  var recImg = recipes[num].image
+
+  fetch(recNameURL, {
+      method: 'PUT',
+      body: recName,
+      headers: {
+        "X-Mashape-Key": APIKEY,
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Accept": "application/json"
+      }
+    })
+    .then(rsp => rsp.json())
+    .then(rsp => {
+      console.log("We are putting the ", recName, " in the DB");
+    })
+
+  fetch(recPicURL, {
+      method: 'PUT',
+      body: recImg,
+      headers: {
+        "X-Mashape-Key": APIKEY,
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Accept": "application/json"
+      }
+    })
+    .then(rsp => rsp.json())
+    .then(rsp => {
+      console.log("We are putting the ", recImg, " in the DB")
+    })
 }
 
 document
