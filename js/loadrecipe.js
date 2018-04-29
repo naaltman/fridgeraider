@@ -17,7 +17,7 @@ function loadAjax() {
     .then(rsp => rsp.json())
     .then(rsp => {
       recipes = rsp.results
-      console.log(recipes)
+      console.log(rsp)
       document.getElementById("recipe_title").innerHTML = recipes[0].title
       document.getElementById("recipe_picture").src = recipes[0].image
       var instrct1url = recipe_info + recipes[0].id + "/analyzedInstructions"
@@ -43,6 +43,8 @@ function loadAjax() {
              "No recipe instructions found"
         }
       })
+      putInDb(0);
+
     })
 }
 

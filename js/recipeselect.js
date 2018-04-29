@@ -1,5 +1,6 @@
 var query = '';
 var ingredients = [];
+
 var allergies = '';
 var restrict = '';
 var cuisine = '';
