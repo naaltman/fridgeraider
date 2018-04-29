@@ -13,6 +13,10 @@ body, html{
   font-family: 'Playfair Display', serif;
 }
 
+.mytext{
+  text-color:white;
+}
+
 .sub-heading{
   color: #D3D3D3;
 }
@@ -38,10 +42,14 @@ h4,
 h5,
 h6 {
   font-weight: 700;
+  color: white;
 }
-
+/*
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
+} */
+.myimg{
+  height: auto;
 }
 
 /* Map */

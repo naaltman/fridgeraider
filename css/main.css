@@ -22,8 +22,8 @@
 }
 
 .nav-class{
-  /* background-color: #383838; */
-  background: linear-gradient(#383838, #585858, #707070);
+  background-color: #383838;
+  /* background: linear-gradient(#383838, #585858, #707070); */
   color: #DCDCDC;
   height: 50px;
   opacity: .8;

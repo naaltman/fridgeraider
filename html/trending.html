@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="../css/main.css" rel="stylesheet">
   <link href="../css/trending.css" rel="stylesheet">
-  <link rel="shortcut icon" href="../img/refrigerator.png"/>
+  <link rel="shortcut icon" href="../img/refrigerator.png" />
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900" rel="stylesheet">
   <title> Fridge Raider </title>
 </head>
+
 <body>
   <!-- Navigation -->
   <section>
@@ -36,59 +38,34 @@
   </section>
 
   <section class="content-section" id="trending">
-  <div class="container">
-    <div class="content-section-heading text-center">
-      <h3 class="text-secondary mb-0">Hot Recipes</h3>
-      <h2 class="sub-heading mb-5">Trending</h2>
-    </div>
-    <div class="row no-gutters">
-      <div class="col-lg-6">
-        <a class="portfolio-item" href="#page-top">
-          <span class="caption">
-            <span class="caption-content">
-              <h2>Stationary</h2>
-              <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-            </span>
-          </span>
-          <img class="img-fluid" src="../img/header-bg.jpeg" alt="">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Hot Recipes</h3>
+        <h2 class="sub-heading mb-3">Trending</h2>
+        <p class="sub-heading mb-2">Here's a few recipes our users have been cooking up.</p>
+      </div>
+      <div class="row">
+      <div class="col-6">
+        <h2 id="recipe_title0"></h2>
+        <img class="myimg" id="recipe_picture0" alt="">
         </a>
       </div>
-      <div class="col-lg-6">
-        <a class="portfolio-item" href="#page-top">
-          <span class="caption">
-            <span class="caption-content">
-              <h2>Ice Cream</h2>
-              <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-            </span>
-          </span>
-          <img class="img-fluid" src="../img/header-bg.jpeg" alt="">
-        </a>
+      <div class="col-6">
+        <h2 id="recipe_title2"></h2>
+        <img class="myimg" id="recipe_picture2" alt="">
       </div>
-      <div class="col-lg-6">
-        <a class="portfolio-item" href="#page-top">
-          <span class="caption">
-            <span class="caption-content">
-              <h2>Strawberries</h2>
-              <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-            </span>
-          </span>
-          <img class="img-fluid" src="../img/header-bg.jpeg" alt="">
-        </a>
+      <div class="col-6">
+        <h2 id="recipe_title4"></h2>
+        <img class="myimg" id="recipe_picture4" alt="">
       </div>
-      <div class="col-lg-6">
-        <a class="portfolio-item" href="#page-top">
-          <span class="caption">
-            <span class="caption-content">
-              <h2>Workspace</h2>
-              <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-            </span>
-          </span>
-          <img class="img-fluid" src="../img/header-bg.jpeg" alt="">
-        </a>
+      <div class="col-6">
+        <h2 id="recipe_title6"></h2>
+        <img class="myimg" id="recipe_picture6" alt="">
       </div>
     </div>
   </div>
-</section>
+  </section>
+
 
   <div>
     <br></br>
@@ -101,5 +78,7 @@
     <br></br>
   </div>
 
-  </body>
+  <script src="../js/feedRecipe.js"></script>
+</body>
+
 </html>
