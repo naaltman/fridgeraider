@@ -1,9 +1,5 @@
 var query = '';
-<<<<<<< HEAD
 var ingredients = [];
-=======
-var ingredients = ['apples,flour,sugar'];
->>>>>>> 4c9769286baeda40f4c48cc1a8ca04107f5143e6
 var allergies = '';
 var restrict = '';
 var cuisine = '';
