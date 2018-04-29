@@ -1,11 +1,7 @@
 const APIKEY = "kUvc4U4wx8mshla6aUVHG3KdK5oIp1ZyIDsjsn2PGSErYa4kl1"
 const PROJECTNAME = "FridgeRaider"
 var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true"
-<<<<<<< HEAD
-var recipe_info = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
-=======
 var dburl = "http://localhost:3000"
->>>>>>> 4c9769286baeda40f4c48cc1a8ca04107f5143e6
 var recipes;
 
 function loadAjax() {
@@ -23,7 +19,6 @@ function loadAjax() {
       console.log(recipes)
       document.getElementById("recipe_title").innerHTML = recipes[0].title
       document.getElementById("recipe_picture").src = recipes[0].image
-<<<<<<< HEAD
 
       var instrct1url = recipe_info + recipes[0].id + "/analyzedInstructions"
       fetch(instrct1url,
@@ -43,9 +38,6 @@ function loadAjax() {
         }
       })
 
-=======
-      putInDb(0);
->>>>>>> 4c9769286baeda40f4c48cc1a8ca04107f5143e6
     })
 }
 
