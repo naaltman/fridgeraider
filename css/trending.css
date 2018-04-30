@@ -4,14 +4,12 @@ body, html{
   /* background-image: url("../img/appleOrchard.jpg"); */
   background-color: #282828;
   height: 100%;
+  font-family: 'Playfair Display', serif;
   /* background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover; */
 }
 
-.body{
-  font-family: 'Playfair Display', serif;
-}
 
 .mytext{
   text-color:white;
